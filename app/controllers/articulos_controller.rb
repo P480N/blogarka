@@ -16,6 +16,7 @@ class ArticulosController < ApplicationController
     #render plain: params[:articulo].inspect
     #@articulo = Articulo.new(params[:articulo])
     @articulo = Articulo.new(articulo_params)
+    @articulo.user = current_user
  
     if @articulo.save
       redirect_to @articulo
@@ -40,6 +41,7 @@ class ArticulosController < ApplicationController
 
   def update
     @articulo = Articulo.find(params[:id])
+    @articulo.user = current_user
  
     if @articulo.update(articulo_params)
       redirect_to @articulo
@@ -59,7 +61,7 @@ class ArticulosController < ApplicationController
 
   private
     def articulo_params
-      params.require(:articulo).permit(:titular, :contenido)
+      params.require(:articulo).permit(:titular, :contenido, :user_id)
     end
 
 end

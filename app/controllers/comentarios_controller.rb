@@ -7,19 +7,16 @@ class ComentariosController < ApplicationController
 	    @comentario = @articulo.comentarios.build(comentario_params)
 	    #@comentario = @articulo.comentarios.create(comentario_params)
 
-	    if @comentario.save
-	      redirect_to @articulo
-	    else
-	      redirect_to @articulo
-	    end
+	    @comentario.save
+	    redirect_to @articulo
 	end
 
 	def destroy
 	    @articulo = Articulo.find(params[:articulo_id])
 	    @comentario = @articulo.comentarios.find(params[:id])
 	    @comentario.destroy
-	    redirect_to articulo_path(@articulo)
-	 end
+	    redirect_to @articulo
+	end
 
   	private
 	    def comentario_params

@@ -10,6 +10,7 @@
       <table class="table table-striped">
         <thead>
           <th>Titular</th>
+          <th>Creador</th>
           <th>Contenido</th>
         </thead>
 
@@ -17,6 +18,7 @@
           <% @articulos.each do |articulo| %>
             <tr>
               <td><%= articulo.titular %></td>
+              <td><%= articulo.user.first_name %></td>
               <td><%= articulo.contenido %></td>
               <td><%= link_to 'Ver', articulo_path(articulo) %></td>
               <td><%= link_to 'Editar', edit_articulo_path(articulo) %></td>

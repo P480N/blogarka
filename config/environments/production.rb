@@ -25,11 +25,7 @@ Rails.application.configure do
 
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  ⁠⁠⁠⁠⁠config.assets.compile = true
-  config.assets.initialize_on_precompile = false
-  config.serve_static_assets = true
-  config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect'
-  config.assets.digest = true
+  ⁠⁠⁠⁠⁠config.assets.compile = false
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
